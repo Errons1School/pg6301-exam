@@ -1,0 +1,39 @@
+{
+  "name": "exam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test:client && npm run test:server",
+    "test:coverage": "npm run test:client:coverage && npm run test:server:coverage",
+    "test:client": "cd client && npm test",
+    "test:client:coverage": "cd client && npm test -- --collectCoverage",
+    "test:server": "cd server && npm test",
+    "test:server:coverage": "cd server && npm test -- --collectCoverage",
+    "build": "npm run build:server && npm run build:client",
+    "build:client": "cd client && npm run build",
+    "build:server": "cd server && npm run build",
+    "dev": "concurrently npm:dev:client npm:dev:server",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "start": "cd server && npm start",
+    "postinstall": "npm run install:client && npm run install:server",
+    "install:client": "cd client && npm install --include=dev",
+    "install:server": "cd server && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pg6301-fall2022/exam-Errons1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pg6301-fall2022/exam-Errons1/issues"
+  },
+  "homepage": "https://github.com/pg6301-fall2022/exam-Errons1#readme",
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "prettier": "^2.7.1"
+  }
+}
