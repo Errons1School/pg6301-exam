@@ -2,6 +2,7 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { FrontPage } from "./pages/frontPage";
 
 import React, { } from "react";
+import {LoginPage} from "./pages/login";
 
 export function Application() {
   return (
@@ -13,6 +14,7 @@ export function Application() {
       <main>
         <Routes>
           <Route path={"/"} element={<FrontPage />} />
+          <Route path={"/login"} element={<LoginPage />} />
         </Routes>
       </main>
     </BrowserRouter>

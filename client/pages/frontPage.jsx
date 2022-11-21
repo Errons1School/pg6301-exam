@@ -7,10 +7,7 @@ export function FrontPage() {
       <h1>Frontpage!</h1>
       <ul>
         <li>
-          <Link to={"/"}>Test 1</Link>
-        </li>
-        <li>
-          <Link to={"/"}>Test 2</Link>
+          <Link to={"/login"}>Login</Link>
         </li>
       </ul>
     </div>
