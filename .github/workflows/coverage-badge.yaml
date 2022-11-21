@@ -17,7 +17,7 @@ jobs:
           node-version: 16.x
           cache: 'npm'
       - run: npm ci
-      - run: npm run verify
+      - run: npm test:coverage
         env:
           MONGODB_URL: ${{ secrets.MONGODB_URL }}
 
