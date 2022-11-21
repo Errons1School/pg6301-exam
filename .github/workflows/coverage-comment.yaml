@@ -1,4 +1,4 @@
-name: Tests and coverage
+name: Coverage comment
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v2
       - name: install dependencies
         run: npm ci
