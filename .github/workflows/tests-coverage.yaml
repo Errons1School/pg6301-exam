@@ -1,4 +1,4 @@
-name: Build and run tests, file coverage and return report  - pg6301-exam
+name: Tests and coverage
 
 on:
   push:
