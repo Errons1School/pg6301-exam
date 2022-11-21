@@ -17,10 +17,6 @@ jobs:
           node-version: 18.x
           cache: 'npm'
       - run: npm ci
-      - run: npm install
-        working-directory: client
-      - run: npm install
-        working-directory: server
       - run: npm run verify
 
       - name: Coveralls GitHub Action
