@@ -13,27 +13,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v2
+      - uses: ArtiomTr/jest-coverage-report-action@v2
       - name: install dependencies
+        id: coverage
         run: npm ci
       - run: npm test
         env:
           MONGODB_URL: ${{ secrets.MONGODB_URL }}
-
-      - name: Collect coverage from client
-        uses: ArtiomTr/jest-coverage-report-action@v2.1.2
         with:
-          working-directory: client
           output: report-markdown
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
           message: ${{ steps.coverage.outputs.report }}
 
-      - name: Collect coverage from server
-        uses: ArtiomTr/jest-coverage-report-action@v2.1.2
-        with:
-          working-directory: server
-        env:
-          MONGODB_URL: ${{ secrets.MONGODB_URL }}
-      - uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          message: ${{ steps.coverage.outputs.report }}
+
