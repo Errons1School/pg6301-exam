@@ -37,7 +37,9 @@
   "homepage": "https://github.com/pg6301-fall2022/exam-Errons1#readme",
   "devDependencies": {
     "concurrently": "^7.6.0",
-    "jest": "^29.3.1",
     "prettier": "^2.7.1"
+  },
+  "dependencies": {
+    "jest": "^29.3.1"
   }
 }
