@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 18.x
           cache: 'npm'
-      - run: npm ci
+      - run: npm install
       - run: npn run postinstall
       - run: npm run verify
 
