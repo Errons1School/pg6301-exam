@@ -38,9 +38,17 @@
   "devDependencies": {
     "concurrently": "^7.6.0",
     "coveralls": "^3.1.1",
+    "jest": "^29.3.1",
+    "jest-environment-jsdom": "^29.3.1",
     "prettier": "^2.7.1"
   },
-  "dependencies": {
-    "jest": "^29.3.1"
+  "jest": {
+    "collectCoverage": true,
+    "testEnvironment": "jsdom",
+    "collectCoverageFrom": [
+      "server/*.{js,jsx,tsx,ts}",
+      "client/src/**/*.{js,jsx,tsx,ts}",
+      "!client/index.jsx"
+    ]
   }
 }
