@@ -20,13 +20,13 @@ export function LoginApi(mongoDatabase) {
     }
     const { fullName, username } = req.user;
     res.json({ username, fullName });
+
   });
 
-  router.post("/", async (req, res) => {
 
+  router.post("/", async (req, res) => {
     // set a cookie
     // read the cookie in /login
-
     const { username, password } = req.body;
 
     const query = {
@@ -41,6 +41,7 @@ export function LoginApi(mongoDatabase) {
         username,
         password,
       }))
+      .limit(1)
       .toArray();
 
 

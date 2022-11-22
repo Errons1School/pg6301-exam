@@ -8,7 +8,8 @@ export function Application() {
   return (
     <BrowserRouter>
       <header>
-        <Link to={"/"}>Front page</Link>
+        <Link to={"/"}>Front page   </Link>
+        <Link to={"/login"}>Login</Link>
         <div className="menu-divider" />
       </header>
       <main>

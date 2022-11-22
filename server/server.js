@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(bodyParser.urlencoded({
     extended: false
-}));
+}))
 
 //Setup for connection to mongoDB
 const mongoClient = new MongoClient(process.env.MONGODB_URL);
@@ -27,6 +27,22 @@ mongoClient.connect().then(async () => {
         CateringApi(mongoClient.db(process.env.MONGODB_DATABASE))
     );
 });
+
+//Check if user is logged inn with secure cookie
+app.use(async (req, res, next) => {
+    const { username } = req.signedCookies;
+    const mongoDatabase = mongoClient.db(process.env.MONGODB_DATABASE);
+    const cookieLogin = await mongoDatabase
+        .collection("users")
+        .find({
+            username: [username]
+        })
+        .limit(1)
+        .toArray();
+
+    req.user = cookieLogin[0];
+    next();
+})
 
 
 app.use("/api/login", LoginApi(mongoClient.db(process.env.MONGODB_DATABASE)));

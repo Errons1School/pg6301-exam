@@ -7,15 +7,15 @@
 
 # pg6301-exam
 Checklist of technologies you should include in your application
-* [ ] Some form of Login and access control
-* [ ] Jest tests
+* [x] Some form of Login and access control
+* [x] Jest tests
 * [ ] Snapshot tests
 * [ ] Simulate + jest.fn
 * [ ] Supertest
 * [x] GitHub Actions with coverage report
 * [x] Deployment to cloud (in this case, Azure)
-* [ ] Mongodb
-* [ ] Navigating in the application using React Router (remember Express Middleware)
-* [ ] Reading data from the server (remember error handling)
-* [ ] Writing data to the server
+* [x] Mongodb
+* [x] Navigating in the application using React Router (remember Express Middleware)
+* [x] Reading data from the server (remember error handling)
+* [x] Writing data to the server
 * [ ] Websockets
