@@ -1,10 +1,10 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import {Application} from "../application";
-import {LoginPage} from "../pages/login";
-import {ListCatering} from "../pages/listCatering";
-import {AddNewCatering} from "../pages/addNewCatering";
-import {RemoveCatering} from "../pages/removeCatering";
+import {Application} from "../client/application";
+import {LoginPage} from "../client/pages/login";
+import {ListCatering} from "../client/pages/listCatering";
+import {AddNewCatering} from "../client/pages/addNewCatering";
+import {RemoveCatering} from "../client/pages/removeCatering";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 describe("Snapshot tests", () => {
