@@ -8,10 +8,10 @@
 # pg6301-exam
 Checklist of technologies you should include in your application
 * [x] Some form of Login and access control
-* [ ] Jest tests
-* [ ] Snapshot tests
-* [ ] Simulate + jest.fn
-* [ ] Supertest
+* [x] Jest tests
+* [x] Snapshot tests
+* [x] Simulate + jest.fn
+* [x] Supertest
 * [x] GitHub Actions with coverage report
 * [x] Deployment to cloud (in this case, Azure)
 * [x] Mongodb

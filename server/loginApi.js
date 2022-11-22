@@ -77,7 +77,6 @@ export function LoginApi(mongoDatabase) {
     res.sendStatus(200);
   });
 
-
   return router;
 }
 
