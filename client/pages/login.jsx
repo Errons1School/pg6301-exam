@@ -18,9 +18,10 @@ export function LoginPage() {
         body: JSON.stringify({ username, password })
       }).then((res) => {
         if (res.ok) {
-          navigate("/");
+            navigate("/");
+            navigate(0);
         } else {
-          navigate(LoginPage);
+          navigate("/login");
         }
       });
 
@@ -35,6 +36,15 @@ export function LoginPage() {
         <div>
           <button>Submit</button>
         </div>
+          <p>This is only here for giving the grader access to login</p>
+          <ul>
+              <li>Username: root</li>
+              <li>Password: root</li>
+              <li>Fullname: Admin</li>
+              <li>Username: user</li>
+              <li>Password: user</li>
+              <li>Fullname: Person</li>
+          </ul>
       </form>
   );
 }

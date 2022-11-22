@@ -8,7 +8,7 @@
 # pg6301-exam
 Checklist of technologies you should include in your application
 * [x] Some form of Login and access control
-* [x] Jest tests
+* [ ] Jest tests
 * [ ] Snapshot tests
 * [ ] Simulate + jest.fn
 * [ ] Supertest

@@ -28,25 +28,7 @@ mongoClient.connect().then(async () => {
     );
 });
 
-//Check if user is logged inn with secure cookie
-app.use(async (req, res, next) => {
-    const { username } = req.signedCookies;
-    const mongoDatabase = mongoClient.db(process.env.MONGODB_DATABASE);
-    const cookieLogin = await mongoDatabase
-        .collection("users")
-        .find({
-            username: [username]
-        })
-        .limit(1)
-        .toArray();
-
-    req.user = cookieLogin[0];
-    next();
-})
-
-
 app.use("/api/login", LoginApi(mongoClient.db(process.env.MONGODB_DATABASE)));
-
 
 //Import of generated HTML-file
 app.use(express.static("../client/dist/"));
