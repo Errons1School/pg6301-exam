@@ -5,7 +5,7 @@ export function FrontPage({ user }) {
   if (user === null) {
     return (
       <div>
-        <h1>Frontpage!</h1>
+        <h1>Catering online</h1>
         <ul>
           <li>
             <Link to={"/catering"}>View Catering options</Link>
@@ -17,7 +17,7 @@ export function FrontPage({ user }) {
   } else if (user.username === "root") {
     return (
       <div>
-        <h1>Frontpage!</h1>
+        <h1>Catering online</h1>
         <ul>
           <li>
             <Link to={"/catering"}>View Catering options</Link>
@@ -35,7 +35,7 @@ export function FrontPage({ user }) {
   } else if (user.username === "user") {
     return (
       <div>
-        <h1>Frontpage!</h1>
+        <h1>Catering online</h1>
         <ul>
           <li>
             <Link to={"/catering"}>View Catering options</Link>

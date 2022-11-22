@@ -20,13 +20,9 @@ app.use(bodyParser.urlencoded({
 
 //Setup for connection to mongoDB
 const mongoClient = new MongoClient(process.env.MONGODB_URL);
-mongoClient.connect().then(async () => {
-    console.log("Connected to mongodb");
-    app.use(
-        "/api/catering",
-        CateringApi(mongoClient.db(process.env.MONGODB_DATABASE))
-    );
-});
+mongoClient.connect();
+
+app.use("/api/catering", CateringApi(mongoClient.db(process.env.MONGODB_DATABASE)));
 
 app.use("/api/login", LoginApi(mongoClient.db(process.env.MONGODB_DATABASE)));
 

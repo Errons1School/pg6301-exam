@@ -16,7 +16,7 @@ export function LoginApi(mongoDatabase) {
   router.get("/", async (req, res) => {
     // read the cookie in /login
     const { username } = req.signedCookies;
-    const users = await postUsers(username)
+    const users = await PostUsers(username)
     const user = users.find((u) => u.username === username);
     if (!user) {
       return res.sendStatus(401);
@@ -25,7 +25,7 @@ export function LoginApi(mongoDatabase) {
     return res.json({ fullName, username });
   });
 
-  async function postUsers(username) {
+  async function PostUsers(username) {
     const query = {
       username: username
     }
@@ -39,7 +39,6 @@ export function LoginApi(mongoDatabase) {
         .toArray();
   }
 
-
   router.post("/", async (req, res) => {
     const { username, password } = req.body;
 
@@ -48,7 +47,7 @@ export function LoginApi(mongoDatabase) {
       password: password
     }
 
-    const login = await getUsers(query)
+    const login = await GetUsers(query)
 
     const user = login.find(u => u.username === username);
     if (user && user.password === password) {
@@ -62,7 +61,7 @@ export function LoginApi(mongoDatabase) {
 
   });
 
-  async function getUsers(query) {
+  async function GetUsers(query) {
     return await mongoDatabase
         .collection("users")
         .find(query)
