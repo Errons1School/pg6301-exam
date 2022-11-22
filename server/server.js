@@ -16,21 +16,15 @@ app.use(bodyParser.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(bodyParser.urlencoded({
     extended: false
-}));
+}))
 
 //Setup for connection to mongoDB
 const mongoClient = new MongoClient(process.env.MONGODB_URL);
-mongoClient.connect().then(async () => {
-    console.log("Connected to mongodb");
-    app.use(
-        "/api/catering",
-        CateringApi(mongoClient.db(process.env.MONGODB_DATABASE))
-    );
-});
+mongoClient.connect();
 
+app.use("/api/catering", CateringApi(mongoClient.db(process.env.MONGODB_DATABASE)));
 
 app.use("/api/login", LoginApi(mongoClient.db(process.env.MONGODB_DATABASE)));
-
 
 //Import of generated HTML-file
 app.use(express.static("../client/dist/"));

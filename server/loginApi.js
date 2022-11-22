@@ -13,45 +13,70 @@ export function LoginApi(mongoDatabase) {
     })
   );
 
-  router.get("/", (req, res) => {
-    console.log("Inside");
-    if (!req.user) {
+  router.get("/", async (req, res) => {
+    // read the cookie in /login
+    const { username } = req.signedCookies;
+    const users = await PostUsers(username)
+    const user = users.find((u) => u.username === username);
+    if (!user) {
       return res.sendStatus(401);
     }
-    const { fullName, username } = req.user;
-    res.json({ username, fullName });
+    const { fullName } = user;
+    return res.json({ fullName, username });
   });
 
+  async function PostUsers(username) {
+    const query = {
+      username: username
+    }
+
+    return await mongoDatabase
+        .collection("users")
+        .find(query)
+        .map(({ username}) => ({
+          username,
+        }))
+        .toArray();
+  }
+
   router.post("/", async (req, res) => {
-
-    // set a cookie
-    // read the cookie in /login
-
     const { username, password } = req.body;
 
     const query = {
-      username: "root",
-      password: "root"
+      username: username,
+      password: password
     }
 
-    const login = await mongoDatabase
-      .collection("users")
-      .find(query)
-      .map(({ username, password }) => ({
-        username,
-        password,
-      }))
-      .toArray();
+    const login = await GetUsers(query)
 
-
-    if (login[0].username === username && login[0].password === password) {
+    const user = login.find(u => u.username === username);
+    if (user && user.password === password) {
+      // set a cookie
       res.cookie("username", username, { signed: true });
       res.sendStatus(200);
+
     } else {
       res.send(401);
     }
 
   });
+
+  async function GetUsers(query) {
+    return await mongoDatabase
+        .collection("users")
+        .find(query)
+        .map(({ username, password }) => ({
+          username,
+          password,
+        }))
+        .toArray();
+  }
+
+  router.delete("/", (req, res) => {
+    res.clearCookie("username");
+    res.sendStatus(200);
+  });
+
 
   return router;
 }
