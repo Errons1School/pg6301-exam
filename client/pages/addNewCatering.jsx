@@ -14,7 +14,7 @@ export function AddNewCatering() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    createCatering({ name, price: parseInt(price), description, ingredients });
+    createCatering({ name, price, description, ingredients });
     navigate("/");
   }
 

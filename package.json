@@ -40,7 +40,8 @@
     "coveralls": "^3.1.1",
     "jest": "^29.3.1",
     "jest-environment-jsdom": "^29.3.1",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "supertest": "^6.3.1"
   },
   "jest": {
     "collectCoverage": true,

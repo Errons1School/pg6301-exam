@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { CateringApi } from "../cateringApi";
-import { useLoading } from "../useLoading";
+import { useLoading } from "../library/useLoading";
 
 function CateringCard({ catering: { name, price, description, ingredients } }) {
   return (
